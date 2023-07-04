@@ -26,8 +26,8 @@ class CardTableSeeder extends Seeder
          $newCard->series = $card["series"];
          $newCard->sale_date = $card["sale_date"];
          $newCard->type = $card["type"];
-         $newCard->artists = $card["artists"];
-         $newCard->writers = $card["writers"];
+         $newCard->artists = implode(", ", $card["artists"]);
+         $newCard->writers = implode(", ", $card["writers"]);
          $newCard->save();
         }
     }
