@@ -26,7 +26,7 @@ class CardController extends Controller
      */
     public function create()
     {
-        //
+        return view("cards.create");
     }
 
     /**
@@ -37,7 +37,21 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $newCard =  new Card;
+        $newCard->title = $data["title"];
+        $newCard->description = $data["description"];
+        $newCard->thumb = $data["thumb"];
+        $newCard->price = $data["price"];
+        $newCard->series = $data["series"];
+        $newCard->sale_date = $data["sale_date"];
+        $newCard->type = $data["type"];
+        $newCard->artists = $data["artists"];
+        $newCard->writers = $data["writers"];
+        $newCard->save();
+
+        return redirect()->route('cards.show', $newCard->id);
     }
 
     /**
@@ -48,8 +62,6 @@ class CardController extends Controller
      */
     public function show(Card $card)
     {
-   
-        
         return view("cards.show", compact("card"));  
     }
 

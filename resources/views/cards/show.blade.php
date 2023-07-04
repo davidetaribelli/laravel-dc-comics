@@ -28,8 +28,11 @@
                           <h6 class="card-title">{{$card['sale_date']}}</h6>
                           <h5 class="card-title">{{$card['price']}}</h5>
                         </div>
-                      </div>
+                    </div>
                 </div>
+            </div>
+            <div class="load_ text-center">
+                <a href="{{route("cards.index")}}" class="py-1 px-4 border-0 m-4 text-white btn btn-primary">BACK </a>
             </div>
         </div>
     </div>

@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="load_ text-center">
-                <button class="py-1 px-4 border-0 m-4 text-white"> LOAD MORE </button>
+                <a href="{{route("cards.create")}}" class="py-1 px-4 border-0 m-4 text-white btn btn-primary"> ADD </a>
             </div>
         </div>
     </div>
