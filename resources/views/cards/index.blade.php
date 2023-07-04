@@ -18,8 +18,10 @@
                 <div id="contentHere" class="text-white d-flex flex-wrap justify-content-start align-items-center p-3">
                     @foreach ($cards as $card)
                     <div class="card_">
-                        <img src="{{$card['thumb']}}" alt="{{$card['type']}}">
-                        <small>{{ $card['series'] }}</small>
+                        <a class="text-decoration-none text-white" href="{{route("cards.show", $card['id'])}}">
+                            <img src="{{$card['thumb']}}" alt="{{$card['type']}}">
+                            <small>{{ $card['series'] }}</small>
+                        </a> 
                     </div>
                     @endforeach
                 </div>

@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [CardController::class, "index"])->name("home");
+
+Route::resource("cards", CardController::class);
