@@ -46,9 +46,9 @@ class CardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Card $card)
     {
-        $card = Card::find($id);
+   
         
         return view("cards.show", compact("card"));  
     }

@@ -17,7 +17,7 @@
                 </div>
                 <div id="contentHere" class="text-white d-flex flex-wrap align-items-center p-3">
                     <div class="card" style="width: 30rem;">
-                        <img src="{{$card['thumb']}}" class="card-img-top" alt="...">
+                        <img src="{{$card['thumb']}}" class="card-img-top" alt="{{$card['title']}}">
                         <div class="card-body">
                           <h3 class="card-title">{{$card['title']}}</h3>
                           <p class="card-text">{{$card['description']}}</p>
