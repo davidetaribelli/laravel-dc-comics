@@ -16,16 +16,18 @@
                     <span> CURRENT SERIES</span>
                 </div>
                 <div id="contentHere" class="text-white d-flex flex-wrap align-items-center p-3">
-                    <div class="card" style="width: 30rem;">
+                    <div class="card d-flex flex-row">
                         <img src="{{$card['thumb']}}" class="card-img-top" alt="{{$card['title']}}">
                         <div class="card-body">
                           <h3 class="card-title">{{$card['title']}}</h3>
                           <p class="card-text">{{$card['description']}}</p>
-                          <h3>Writers:</h3>
+                          <h5>Writers:</h5>
                           <small class="card-title">{{$card['writers']}}</small>
-                          <h3>Artist:</h3>
+                          <h5>Artist:</h5>
                           <small class="card-title">{{$card['artists']}}</small>
+                          <h5>Date:</h5>
                           <h6 class="card-title">{{$card['sale_date']}}</h6>
+                          <h5>Price:</h5>
                           <h5 class="card-title">{{$card['price']}}</h5>
                         </div>
                     </div>

@@ -71,6 +71,13 @@ section.mainUp{
         cursor: pointer;
         background-color: #0282f9;
     }
+
+    .card{
+        img{
+            width: 20%;
+            object-fit: contain;
+        }
+    }
 }
 
 section.mainDown{
