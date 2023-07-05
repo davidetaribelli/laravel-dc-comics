@@ -57,7 +57,7 @@ class CardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  Card $card
      * @return \Illuminate\Http\Response
      */
     public function show(Card $card)
@@ -71,31 +71,46 @@ class CardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Card $card)
     {
-        //
+        return view("cards.edit", compact("card"));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Card $card
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Card $card)
     {
-        //
+        $data = $request->all();
+
+        $card->title = $data["title"];
+        $card->description = $data["description"];
+        $card->thumb = $data["thumb"];
+        $card->price = $data["price"];
+        $card->series = $data["series"];
+        $card->sale_date = $data["sale_date"];
+        $card->type = $data["type"];
+        $card->artists = $data["artists"];
+        $card->writers = $data["writers"];
+        $card->update();
+
+        return redirect()->route('cards.show', $card->id); 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Card $card
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Card $card)
     {
-        //
+        $card->delete();
+
+        return redirect()->route('cards.index');
     }
 }

@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -34,9 +35,16 @@
                 </div>
             </div>
             <div class="load_ text-center">
-                <a href="{{route("cards.index")}}" class="py-1 px-4 border-0 m-4 text-white btn btn-primary">BACK </a>
+                <a href="{{route("home")}}" class="py-1 px-4 border-0 m-4 text-white btn btn-primary">BACK HOME</a>
+                <a href="{{route("cards.edit", $card->id)}}" class="py-1 px-4 border-0 m-4 text-white btn btn-primary">EDIT</a>
+                <form action="{{route("cards.destroy", $card)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <input type="submit" class="py-1 px-4 border-0 m-4 text-white btn btn-danger" value="DELETE">
+                </form>
             </div>
         </div>
     </div>
 </section>
+
 @endsection
