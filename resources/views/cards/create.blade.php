@@ -85,6 +85,9 @@
                     </form>
                 </div>
             </div>
+            <div class="load_ text-center">
+                <a href="{{route("home")}}" class="py-1 px-4 border-0 m-4 text-white btn btn-primary">BACK HOME</a>
+            </div>
         </div>
     </div>
 </section>

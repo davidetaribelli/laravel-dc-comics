@@ -121,7 +121,7 @@ class CardController extends Controller
      */
     public function update(Request $request, Card $card)
     {
-        $data = $request->all();
+        $data = $this->validateCard($request->all());
 
         $card->title = $data["title"];
         $card->description = $data["description"];
