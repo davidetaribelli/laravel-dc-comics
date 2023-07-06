@@ -20,7 +20,7 @@
                     <div class="card_">
                         <a class="text-decoration-none text-white" href="{{route("cards.show", $card['id'])}}">
                             <img src="{{$card['thumb']}}" alt="{{$card['type']}}">
-                            <small>{{ $card['series'] }}</small>
+                            <small>{{ $card['title'] }}</small>
                         </a> 
                     </div>
                     @endforeach

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Card;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CardController extends Controller
 {
@@ -29,6 +30,41 @@ class CardController extends Controller
         return view("cards.create");
     }
 
+    private function validateCard($data){
+        $validator = Validator::make($data,[
+            "title"=>"required|min:5|max:50",
+            "description"=>"required|min:5|max:65535",
+            "thumb"=>"required|min:5|max:65535",
+            "price"=>"required|min:5|max:10",
+            "series"=>"required|min:5|max:50",
+            "sale_date"=>"required",
+            "type"=>"required|min:5|max:50",
+            "artists"=>"required|min:5|max:50",
+            "writers"=>"required|min:5|max:50",
+        ],[
+            "title.required" => "Il titolo è obbligatorio",
+            "title.min" => "Il titolo deve essere almeno di :min caratteri",
+            "description.required" => "La descrizone è obbligatoria",
+            "description.min" => "La descrizone deve essere almeno di :min caratteri",
+            "thumb.required" => "L'immagine è obbligatoria",
+            "thumb.min" => "Il percorso dell'immagine deve essere almeno di :min caratteri",
+            "price.required" => "Il prezzo è obbligatorio",
+            "price.min" => "Il prezzo deve essere almeno di :min caratteri",
+            "series.required" => "La serie del fumetto è obbligatoria",
+            "series.min" => "La serie deve essere almeno di :min caratteri",
+            "sale_date.required" => "La data è obbligatoria",
+            "type.required" => "La tipologia del fumetto è obbligatoria",
+            "type.min" => "La tipologia deve essere almeno di :min caratteri",
+            "artists.required" => "Gli artisti del fumetto sono obbligatori",
+            "artists.min" => "Gli artisti devono avere almeno :min caratteri",
+            "writers.required" => "Gli scrittori del fumetto sono obbligatori",
+            "writers.min" => "Gli scrittori devono avere almeno :min caratteri",
+            
+        ])->validate();
+        
+        return $validator;
+    }
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -37,7 +73,7 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $this->validateCard($request->all());
 
         $newCard =  new Card;
         $newCard->title = $data["title"];
